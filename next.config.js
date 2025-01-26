@@ -11,18 +11,9 @@ module.exports = withBundleAnalyzer(
     reactStrictMode: true,
     images: {
       remotePatterns: [
-        {
-          protocol: "http",
-          hostname: "localhost",
-        },
-        {
-          protocol: "http",
-          hostname: "127.0.0.1",
-        },
-        {
-          protocol: "https",
-          hostname: "**",
-        },
+        { protocol: "http", hostname: "localhost" },
+        { protocol: "http", hostname: "127.0.0.1" },
+        { protocol: "https", hostname: "**" },
       ],
     },
     headers: async () => {
@@ -32,13 +23,12 @@ module.exports = withBundleAnalyzer(
           headers: [
             {
               key: "Content-Security-Policy",
-              value: `
-                default-src 'self'; 
-                script-src 'self' 'unsafe-inline' 'unsafe-eval'; 
-                connect-src 'self' https://gygbxgpvfsvihxbmahcy.supabase.co; 
-                img-src 'self' https://gygbxgpvfsvihxbmahcy.supabase.co data:; 
-                frame-src 'self';
-              `,
+              value:
+                "default-src 'self'; " +
+                "script-src 'self' 'unsafe-inline' 'unsafe-eval'; " +
+                "connect-src 'self' https://gygbxgpvfsvihxbmahcy.supabase.co; " +
+                "img-src 'self' https://gygbxgpvfsvihxbmahcy.supabase.co data:; " +
+                "frame-src 'self';",
             },
             {
               key: "Access-Control-Allow-Origin",
